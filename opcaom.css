@@ -1,0 +1,10 @@
+.container{
+    max-width: 550px;
+    min-width: 350px;
+}
+.carrossel{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1.2rem;
+    overflow-x: auto;
+}

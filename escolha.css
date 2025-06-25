@@ -1,0 +1,170 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  height: 100vh;
+  align-items: center;
+  margin: 0;
+  background:url('onça.png') no-repeat center center fixed; 
+  background-size: cover;
+  flex-direction: column; 
+}
+
+header {
+    background: #000000;
+    background: linear-gradient(to right, #000000, #d2b68a);
+    color: #ffffff ;
+    width: 100%;
+    padding: 20px 40px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+   
+    justify-content: space-between; /* separa título e botão */
+    box-sizing: border-box;
+    text-align: center;
+    
+   
+}
+
+header h1 {
+  text-align: center;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+.slider {
+  position:sticky;
+  width: 300px;
+  height: 300px;
+  
+  overflow:hidden;
+  border: 3px solid #d2b68a;
+  background: #ffffff;
+  margin-bottom: 30px; 
+}
+
+
+.slide {
+  display: none;
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+}
+
+.slide.active {
+  display: flex;
+}
+
+
+.prev, .next {
+  position: absolute;
+  bottom: 10px;
+  padding: 8px 12px;
+  background-color: #d2b68a;
+  color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+
+@media (max-width: 600px) {
+  .slider {
+    width: 100%;
+    height: 300px; 
+  }
+  
+  .slide {
+    font-size: 18px;  
+  }
+  
+  .prev, .next {
+    padding: 6px 10px;  
+  }
+}
+
+.opcoes-menu {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  background: #fff;
+  border: 1px solid #d2b68a;
+  padding: 10px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.opcoes-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #d2b68a;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+
+
+#finalizarBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  background-color: #363636;
+  color: rgb(255, 253, 253);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#mensagemMissmatch {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: #ff4d4d;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px 60px;
+  border-radius: 12px;
+  z-index: 1001;
+  box-shadow: 0 0 15px rgba(226, 195, 137, 0.3);
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+

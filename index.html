@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL WEAR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="banner">
+          <img src="feminino.jpg" alt="Imagem 1">
+          <img src="img1.jpg" alt="Imagem 2">
+        </div>
+      </header>
+  <div class="faixa">
+    <center> <h1>ALL WEAR</h1></center>
+    <center><p>Este é um espaço onde você pode escolher sua combinação perfeita de roupa para seu dia.</p></center>
+  </div>
+
+       <!-- cards -->
+<section class="cards">
+    <div class="card">
+      <center><img src="frio.jpg" class="poster" alt="Casaco">  
+      <div class="product-item">
+        <p>Próximas tendências para o inverno</p>
+      </div>  
+      <a href="inverno.html" class="veja-mais">Clique aqui</a></center>
+    </div>
+  
+    <div class="card">
+      <center><img src="jeans.jpg" class="poster" alt="Jeans">
+      <div class="product-item">
+        <p>Jeans for Live</p>
+      </div>
+      <a href="mais1.html" class="veja-mais">Clique aqui</a></center>
+    </div>
+  </section>
+
+   <div class="button">
+      <a href="cadastro.html">Cadastre - se</a>
+    </div>
+  </main>
+
+  <script>
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById('carousel');
+      const cardWidth = carousel.querySelector('.card').offsetWidth + 32;
+      carousel.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    }
+  </script>
+
+  <br>
+
+<script src="script.js"></script>
+
+    <footer>
+        <p>&copy;ALL WEAR - Contatos: (19) 995252957 | @all_wear</p>
+        </p>
+    </footer>
+    </body>
+</html>
+</body>
+</html>

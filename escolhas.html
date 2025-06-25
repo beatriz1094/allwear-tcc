@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Escolher Imagens</title>
+  <header>
+    <h1>Escolha suas imagens</h1>
+  </header>
+  <br><br><br><br>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    header {
+    display: flex;
+    margin: 0%;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    padding: 30px 20%;
+    color: white;                   
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    }
+    h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px; /* Exemplo de altura, ajuste como quiser */
+  width: 100%;
+    }
+    .image-option {
+      width: 150px;
+      height: 50
+      0px;
+      object-fit: cover;
+      margin: 10px;
+      border: 3px solid transparent;
+      cursor: pointer;
+    }
+    .image-option.selected {
+      border-color: #ecca09ef;
+    }
+    .image-option.selected:hover {
+      transform: translateY(-5px);
+      animation: brilho 1s infinite alternate;
+      box-shadow: 0 0 5px #ecca09ef, 0 0 10px #ecca09ef, 0 0 15px #ecca09ef;
+    }
+
+    
+    #goToSlider {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    @keyframes brilho {
+  0% {
+    box-shadow: 0 0 5px #007bff, 0 0 10px #007bff, 0 0 15px #007bff;
+  }
+  100% {
+    box-shadow: 0 0 20px #007bff, 0 0 30px #007bff, 0 0 40px #007bff;
+  }
+
+}
+
+    }
+  </style>
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrossel</title>
+  <link rel="stylesheet" href="escolhas.css">
+</head>
+<body>
+  <div class="header-border">
+  </div>
+
+
+  <script src="scriptescolhas.js"></script>
+</body>
+  <div id="imageList">
+
+    <img src="https://i.pinimg.com/736x/1f/85/82/1f858231604780eedb7134dd362a57d1.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/3f/6c/69/3f6c69c1c12a6be99017be9fa7250e6f.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/6b/cc/e8/6bcce83acc7e6c069bb82718542c2201.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/9c/e7/a8/9ce7a8b328682f2539dc4fdc10f4dbcb.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/1d/f8/65/1df86572cbcacc481f625fbd6494b5fa.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/73/fd/cf/73fdcf2b5a55e27aadf58076851df9c7.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/da/ec/21/daec2176deaeed42fec7c71b07d8cf1c.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/db/ad/02/dbad027bf5b98ffed8673e845d75ed7d.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/8b/d2/e3/8bd2e30e4c501800f060ea98e5535fa8.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/a0/cd/cd/a0cdcd193468d95cd11b13f7466a99fa.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/c4/b2/97/c4b297e13fc9f97e93c54f6724c70b1e.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/c7/d8/c8/c7d8c85363bb88cc2f93a6f5b7ce091b.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/90/da/ef/90daef29dcf72ff03a0cfd65e4138b34.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/84/b7/70/84b77016b40b02d8068345f6e5f9b306.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/3d/6d/7b/3d6d7bad254846fc4ce285e8cce4758d.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/b4/9e/eb/b49eeb29a40bab967391c98c625868de.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/fb/d9/f9/fbd9f99daad228890926bd139057a4c2.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/fc/53/cc/fc53cc3617d9cab00df026e855dbc252.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/74/9d/72/749d7274c92d6e9631515e138f95a1df.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/df/fe/9c/dffe9c5a606cc7a38cd3ba922c0c96fc.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/97/49/c1/9749c18ede435898631896d8a287b0b3.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/ce/1b/5e/ce1b5e970f5b134fcde95c823607963a.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/49/ee/bf/49eebf5baf7c33948f15a2854bf55f31.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/40/db/ad/40dbad7c0e8180103b1d0ea0176ca71e.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/64/b5/f4/64b5f43072c42579f3fcf7a0bf330496.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/a5/b3/db/a5b3db611a510dc76a7575db0b7fb95b.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/53/85/70/538570bfd38d871283494d275c5bfd6f.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/58/1e/95/581e9506ee54549f09e3be30e1e31884.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/42/03/de/4203dea97789d1537ab80d987ad2c976.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/23/1b/d3/231bd3a955d85ae718a0b219da724a9a.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/ac/8b/71/ac8b7135b8f71ff47a0c463bed3ee9f6.jpgs" class="image-option">
+    <img src="https://i.pinimg.com/736x/4d/44/08/4d44086c68fb44dbb07a65d62f2fa7ec.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/d8/e5/ae/d8e5aec6c83c8dde6a7c5f1273332c9e.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/de/eb/12/deeb12e949ddda3fe8d4e02f81a260f4.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/aa/59/01/aa5901e11d6a6f34e60908a2e36ab18e.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/93/3a/bd/933abd792ffe26138427d0939acaa1e6.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/c7/e6/a7/c7e6a72d3220f9b6d803162d00b2dd4c.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/bb/5c/4a/bb5c4aeda429b6d030db38da620d3c00.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/a8/56/a2/a856a2d4ca6e9fd607b91e7b56e0536c.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/d3/ef/f1/d3eff1f56dd1400194f874023f925fc4.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/d9/41/a0/d941a07c59df72ed21c5324b8ff2b1c1.jpg" class="image-option">
+    <img src="https://i.pinimg.com/736x/73/ed/5a/73ed5a8a776eeb5bb2fa67d958fee954.jpg" class="image-option">
+    
+
+  </div>
+
+  <div id="imageList">
+  <div class="image-container">
+    <img src="https://i.pinimg.com/736x/1f/85/82/1f858231604780eedb7134dd362a57d1.jpg" class="image-option">
+  </div>
+  <div class="image-container">
+    <img src="https://i.pinimg.com/736x/3f/6c/69/3f6c69c1c12a6be99017be9fa7250e6f.jpg" class="image-option">
+  </div>
+  <!-- Repita para as outras imagens -->
+</div>
+
+  <button id="goToSlider">Ver no carrossel</button>
+
+  <script>
+    const selectedImages = [];
+    const imageElements = document.querySelectorAll('.image-option');
+
+    imageElements.forEach(img => {
+      img.addEventListener('click', () => {
+        img.classList.toggle('selected');
+        const src = img.src;
+        if (selectedImages.includes(src)) {
+          selectedImages.splice(selectedImages.indexOf(src), 1);
+        } else {
+          selectedImages.push(src);
+        }
+      });
+    });
+
+    document.getElementById('goToSlider').addEventListener('click', () => {
+      if (selectedImages.length === 0) {
+        alert('Selecione pelo menos uma imagem!');
+        return;
+      }
+      localStorage.setItem('userImages', JSON.stringify(selectedImages));
+      window.location.href = 'slider.html';
+    });
+
+    // ...existing code...
+document.getElementById('goToSlider').addEventListener('click', () => {
+  if (selectedImages.length === 0) {
+    alert('Selecione pelo menos uma imagem!');
+    return;
+  }
+  localStorage.setItem('userImages', JSON.stringify(selectedImages));
+  window.location.href = 'escolha.html'; // Alterado para escolha.html
+});
+// ...existing code... 
+
+  </script>
