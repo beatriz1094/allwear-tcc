@@ -23,7 +23,7 @@ model Login {
 
 model Escolha {
   id         Int       @id @default(autoincrement())
-  bluasa     String    @db.VarChar(100)
+  blusa      String    @db.VarChar(100)
   calca      String    @db.VarChar(100)
   vestido    String    @db.VarChar(100)
   casaco     String    @db.VarChar(100) 
