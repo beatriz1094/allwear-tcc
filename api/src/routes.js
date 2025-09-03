@@ -1,26 +1,29 @@
 const express = require('express');
 const routes = express.Router();
 
-const Cadastro = require('./controllers/cadastro');
+const Usuario = require('./controllers/usuario');
 const Login = require('./controllers/login');
 const Escolha = require('./controllers/escolha');
 
+const { validate } = require('./middlewares/auth');
+
+// Rotas públicas
 routes.get('/', (req, res) => {
   return res.json({ titulo: 'all wear' });
 });
 
-routes.post('/cadastro', Cadastro.create);
-routes.get('/cadastro', Cadastro.read);
-routes.get('/cadastro/:id', Cadastro.readOne);
-routes.patch('/cadastro/:id', Cadastro.update);
-routes.delete('/cadastro/:id', Cadastro.remove);
+// Remova estas rotas duplicadas se não existirem nos controllers
+ routes.post('/login', Login.login);
+routes.get('/login', Login.validaToken);
 
-routes.post('/login', Login.create);
-routes.get('/login', Login.read);
-routes.get('/login/:id', Login.readOne);
-routes.patch('/login/:id', Login.update);
-routes.delete('/login/:id', Login.remove);
+routes.post('/usuario', Usuario.create);
+routes.get('/usuario', validate, Usuario.read);
+routes.get('/usuario/:id', validate, Usuario.readOne);
+routes.patch('/usuario/:id', validate, Usuario.update);
+routes.delete('/usuario/:id', validate, Usuario.remove);
 
+
+// Rotas protegidas (exemplo: Escolha)
 routes.post('/escolha', Escolha.create);
 routes.get('/escolha', Escolha.read);
 routes.get('/escolha/:id', Escolha.readOne);

@@ -1,67 +1,62 @@
+const jsonwebtoken = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const create = async (req, res) => {
+const login = async (req, res) => {
+    const { email, senha, validade } = req.body;
+
     try {
-        const login = await prisma.login.create({
-            data: req.body
+        // Busca o Usuario pelo email
+        const Usuario = await prisma.Usuario.findFirst({
+            where: { email }
         });
-        return res.status(201).json(login);
-    } catch (error) {
-        return res.status(400).json({ error: error.message });
-    }
-}
 
-const read = async (req, res) => {
-    const login = await prisma.login.findMany();
-    return res.json(login);
-}
+        if (!Usuario) {
+            return res.status(401).json({ message: 'E-mail ou Senha incorretos!' });
+        }
 
-const readOne = async (req, res) => {
-    try {
-        const login = await prisma.login.findUnique({
-            select: {
-                id: true,
-                nome: true,
-                cpf: true,
-                email: true,
-                viagens: true
+        // Valida a senha usando bcrypt
+        const isValidPassword = await bcrypt.compare(senha, Usuario.senha);
+        if (!isValidPassword) {
+            return res.status(401).json({ message: 'E-mail ou Senha incorretos!' });
+        }
+
+        // Gera o token JWT
+        const token = jsonwebtoken.sign(
+            {
+                id: Usuario.id,
+                nome: Usuario.nome,
+                email: Usuario.email,
             },
-            where: {
-                id: Number(req.params.id)
-            }
-        });
-        return res.json(login);
-    } catch (error) {
-        return res.status(400).json({ error: error.message });
-    }
-}
+            process.env.SECRET_JWT,
+            { expiresIn: validade ? `${validade}min` : "60min" }
+        );
 
-const update = async (req, res) => {
-    try {
-        const login = await prisma.login.update({
-            where: {
-                id: Number(req.params.id)
-            },
-            data: req.body
-        });
-        return res.status(202).json(login);
-    } catch (error) {
-        return res.status(400).json({ error: error.message });
+        res.status(200).json({ token });
+    } catch (err) {
+        console.error('Erro no login:', err);
+        res.status(500).json({ message: 'Erro interno do servidor' });
     }
-}
+};
 
-const remove = async (req, res) => {
-    try {
-        await prisma.login.delete({
-            where: {
-                id: Number(req.params.id)
-            }
-        });
-        return res.status(204).send();
-    } catch (error) {
-        return res.status(404).json({ error: error.message });
+const validaToken = (req, res) => {
+    const token = req.headers.authorization?.split(" ")[1];
+
+    if (!token) {
+        return res.status(401).send({ message: "Acesso negado. Nenhum token recebido." });
     }
-}
 
-module.exports = { create, read, readOne, update, remove };
+    jsonwebtoken.verify(token, process.env.SECRET_JWT, (err, decoded) => {
+        if (err) {
+            return res.status(403).send({ message: "Token inválido ou expirado." });
+        }
+        req.user = decoded;
+        res.status(200).json({ message: req.user });
+    });
+};
+
+module.exports = {
+    login,
+    validaToken
+};
