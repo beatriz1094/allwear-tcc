@@ -65,3 +65,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+
+document.addEventListener("DOMContentLoaded", async function () {
+  const sliders = document.querySelectorAll(".slider");
+
+  // 🔥 Buscar imagens do backend
+  const res = await fetch("http://localhost:3000/listar-imagens");
+  const imagens = await res.json();
+
+  // Preencher o primeiro slider com imagens do backend
+  const slider = sliders[0]; // exemplo: só o primeiro slider
+  const containerSlides = slider.querySelectorAll(".slide");
+
+  slider.innerHTML = ""; // limpa o que já tinha
+
+  imagens.forEach((imgUrl, index) => {
+    const div = document.createElement("div");
+    div.classList.add("slide");
+    if (index === 0) div.classList.add("active"); // primeira imagem ativa
+    div.innerHTML = `<img src="${imgUrl}" alt="slide ${index + 1}">`;
+    slider.appendChild(div);
+  });
+
+  // depois você pode reaproveitar o código que você já tem pros botões prev/next
+});
+
+const form = document.getElementById("uploadForm");
+const slider = document.querySelector(".slider");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  const res = await fetch("http://localhost:3000/upload", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await res.json();
+
+  // Criar um novo slide com a imagem enviada
+  const div = document.createElement("div");
+  div.classList.add("slide", "active"); // já deixa como ativo
+  div.innerHTML = `<img src="${data.url}" alt="imagem">`;
+
+  // Remove 'active' do slide anterior
+  const slidesAtivos = slider.querySelectorAll(".slide.active");
+  slidesAtivos.forEach(s => s.classList.remove("active"));
+
+  slider.appendChild(div);
+});
