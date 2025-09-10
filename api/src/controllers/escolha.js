@@ -67,5 +67,3 @@ const remove = async (req, res) => {
 }
 
 module.exports = { create, read, readOne, update, remove };
-
-//ALOOOOUUUUUU
