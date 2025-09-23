@@ -27,7 +27,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Rota de cadastro
-app.post("/cadastro", (req, res) => {
+app.post("./cadastro", (req, res) => {
   const { nome, telefone, email, senha } = req.body;
 
   if (!nome || !telefone || !email || !senha) {
